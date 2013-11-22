@@ -1,7 +1,11 @@
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Collection;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.TrueFileFilter;
 
@@ -11,8 +15,32 @@ import org.apache.commons.io.filefilter.TrueFileFilter;
 
 public class Text {
 	
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
+		test(null, args);
+	}
+	
+	public static String test(String str, String... str2) {
+		File file = new File("D:/7.txt");
+		InputStream inputStream = null;
+		try {
+			System.out.println("11");
+			inputStream = new BufferedInputStream(new FileInputStream(file));
+			System.out.println("12");
+			return "a";
+		} catch (Exception e) {
+			System.out.println("21");
+			e.printStackTrace();
+			System.out.println("22");
+			return null;
+		}finally {
+			System.out.println("31");
+			IOUtils.closeQuietly(inputStream);
+			System.out.println("32");
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static void testFileUtils() {
 		File file = new File("D:/thrift");
 //		FileFilterUtils.NameFileFilter("temp");
 		Collection<File> collection2 = FileUtils.listFiles(file, 
@@ -29,9 +57,6 @@ public class Text {
 //			System.out.println(f.getAbsolutePath());
 //		}
 	}
-	
-	
-	
 
 	public static void main1(String[] args) {
 		 boolean isOk = 1>2;
