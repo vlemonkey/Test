@@ -14,7 +14,7 @@ import redis.clients.jedis.Pipeline;
 public class RedisTest {
 	
 	private static int PORT = 6379; // 6379 redis port
-	private static String HOST = "10.0.7.239"; // "10.0.7.239" redis host
+	private static String HOST = "10.0.7.215"; // "10.0.7.239" redis host
 
 	private static JedisPoolConfig config = null; // Jedis客户端池配置
 	private static JedisPool pool = null; // Jedis客户端池
@@ -31,12 +31,9 @@ public class RedisTest {
 
 	public static void main(String[] args) {
 		j = pool.getResource();
-		Map<String, String> map = j.hgetAll("BROWSE");
+		Map<String, String> map = j.hgetAll("CELL");
 		System.out.println(map);
 		pool.returnResource(j);
-		
-		map = RedisUtils.findKeyValueMapByTable("BROWSE");
-		System.out.println(map);
 	}
 	
 	public static void Test() {

@@ -16,7 +16,9 @@ import org.apache.commons.io.filefilter.TrueFileFilter;
 public class Text {
 	
 	public static void main(String[] args) throws Exception {
-		test(null, args);
+		Class c = Object.class;
+		Class c2 = Object.class;
+		System.out.println(c == c2);
 	}
 	
 	public static String test(String str, String... str2) {

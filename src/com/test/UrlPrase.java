@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public final class UrlPrase {
 	public static void main(String[] args) throws Exception{
-		String url = "%E6%9D%8E%E8%A1%8C%E4%BA%AE-%E6%84%BF%E5%BE%97%E4%B8%80%E4%BA%BA%E5%BF%83";
+		String url = "%E6%AD%A3%E5%93%81%E7%9B%B4%E5%8D%B7";
 		
 		ArrayList<String> list = getChineseWordFormUrl(url);
 		for (String str : list) {
